@@ -4,7 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Register from "./Form";
 import Login from "./Login";
 import Home from './Home';
-import ProtectedRoute from './ProtectedRoute'; // Import the ProtectedRoute
+import ProtectedRoute from './ProtectedRoute';
+import PublicRoute from './PublicRoute';
 
 function App() {
     return (
@@ -17,8 +18,22 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     {/* Public Routes */}
-                    <Route path="/" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route
+                        path="/"
+                        element={
+                            <PublicRoute>
+                                <Register />
+                            </PublicRoute>
+                        }
+                    />
+                    <Route
+                        path="/login"
+                        element={
+                            <PublicRoute>
+                                <Login />
+                            </PublicRoute>
+                        }
+                    />
 
                     {/* Protected Route */}
                     <Route

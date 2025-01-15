@@ -48,9 +48,70 @@ function Home() {
     }, [token, navigate]);
 
     return (
-        <div>
-            <h1>Welcome {username} to the Home Page</h1>
-            <button onClick={handleLogout}>Logout</button>
+        <div className="min-h-screen text-white bg-gradient-to-r from-slate-500 to-slate-800">
+            {/* Navbar */}
+            <nav className="shadow-md">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex justify-between items-center py-4">
+                        <h1 className="text-xl font-bold">My Dashboard</h1>
+                        <button
+                            onClick={() => handleLogout()}
+                            className="bg-slate-400 text-white px-4 py-2 rounded-md hover:bg-zinc-500"
+                        >
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            {/* Main Content */}
+            <div className="flex">
+                {/* Sidebar */}
+                <aside className="w-64 bg-slate-500 shadow-lg h-screen p-4">
+                    <ul className="space-y-4">
+                        <li>
+                            <a
+                                href="#"
+                                className="block font-bold text-xl text-white"
+                            >
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="block font-bold text-xl text-white"
+                            >
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="block font-bold text-xl text-white"
+                            >
+                                Settings
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+
+                {/* Main Content Section */}
+                <main className="flex-grow p-8 text-white">
+                    <h2 className="text-3xl font-bold mb-4">Welcome to the Dashboard</h2>
+                    <p className="text-lg">
+                        This is where you can view your analytics, manage settings, and
+                        more.
+                    </p>
+                </main>
+            </div>
+
+            {/* Footer */}
+            <footer className=" py-4 shadow-md">
+                <div className="text-center">
+                    &copy; 2025 My Dashboard. All rights reserved.
+                </div>
+            </footer>
         </div>
     );
 }
